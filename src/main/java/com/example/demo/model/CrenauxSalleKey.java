@@ -19,7 +19,7 @@ public class CrenauxSalleKey implements Serializable {
     }
 
     
-    public CrenauxSalleKey(long salle, long crenaux, Date date) {
+    public CrenauxSalleKey(long salle, long crenaux) {
         this.salle = salle;
         this.crenaux = crenaux;
     }
@@ -42,4 +42,10 @@ public class CrenauxSalleKey implements Serializable {
     }
 
 
+	@Override
+	public String toString() {
+		return "CrenauxSalleKey [salle=" + salle + ", crenaux=" + crenaux + "]";
+	}
+
+    
 }

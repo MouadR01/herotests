@@ -23,7 +23,21 @@ public class CrenauxSalle {
     public CrenauxSalle() {
     }
 
-    public Date getDate() {
+    
+
+	public CrenauxSalle(CrenauxSalleKey id, Salle salle, Crenaux crenaux, User user, Date date) {
+		
+		this.id = id;
+		this.salle = salle;
+		this.crenaux = crenaux;
+		this.user = user;
+		this.date = date;
+	}
+
+
+
+
+	public Date getDate() {
 		return date;
 	}
 
@@ -69,12 +83,13 @@ public class CrenauxSalle {
         this.crenaux = crenaux;
     }
 
-    @Override
-    public String toString() {
-        return "CrSalle{" +
-                "id=" + id +
-                ", salle=" + salle +
-                ", crenaux=" + crenaux +
-                '}';
-    }
+
+
+	@Override
+	public String toString() {
+		return "CrenauxSalle [id=" + id + ", salle=" + salle + ", crenaux=" + crenaux + ", user=" + user + ", date="
+				+ date + "]";
+	}
+
+ 
 }

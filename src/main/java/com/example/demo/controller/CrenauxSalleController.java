@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.BeanCreationNotAllowedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.CrenauxSalle;
+import com.example.demo.model.CrenauxSalleKey;
 import com.example.demo.repository.CrenauxRepository;
 import com.example.demo.repository.CrenauxSalleRepository;
 import com.example.demo.repository.SalleRepository;
@@ -35,11 +37,15 @@ public class CrenauxSalleController {
 	@PostMapping("/save")
 	public void save(@RequestBody CrenauxSalle crenauxSalle){
 		System.out.println(crenauxSalle);
-		crenauxSalle.setUser(userRepository.findById(crenauxSalle.getUser().getId()));
-		crenauxSalle.setSalle(salleRepository.findById(crenauxSalle.getSalle().getId()));
-		crenauxSalle.setCrenaux(crenauxRepository.findById(crenauxSalle.getCrenaux().getId()));
-		crenauxSalleRepository.save(crenauxSalle);
+//		crenauxSalle.setUser(userRepository.findById(crenauxSalle.getUser().getId()));
+//		crenauxSalle.setSalle(salleRepository.findById(crenauxSalle.getSalle().getId()));
+//		crenauxSalle.setCrenaux(crenauxRepository.findById(crenauxSalle.getCrenaux().getId()));
+//		crenauxSalleRepository.save(crenauxSalle);
+		
+		CrenauxSalle crenauxSalle1= new CrenauxSalle(new CrenauxSalleKey(crenauxSalle.getSalle().getId(),crenauxSalle.getCrenaux().getId()),crenauxSalle.getSalle(),crenauxSalle.getCrenaux(),crenauxSalle.getUser(),crenauxSalle.getDate()) ;
+		crenauxSalleRepository.save(crenauxSalle1);
 	}
+
 
 
 	@GetMapping("/all")

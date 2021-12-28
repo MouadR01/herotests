@@ -81,16 +81,11 @@ public class Salle {
         this.machines = machines;
     }
 
-    @Override
-    public String toString() {
-        return "Salle{" +
-                "id=" + id +
-                ", code='" + code + '\'' +
-                ", type='" + type + '\'' +
-                ", capacite=" + capacite +
-                ", machines=" + machines +
-                ", bloc=" + bloc +
-                ", crsalless=" + crsalless +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "Salle [id=" + id + ", code=" + code + ", type=" + type + ", capacite=" + capacite + ", machines="
+				+ machines + ", bloc=" + bloc + ", crsalless=" + crsalless + "]";
+	}
+
+    
 }

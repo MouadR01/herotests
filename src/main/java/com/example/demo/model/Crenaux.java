@@ -51,13 +51,11 @@ public class Crenaux {
         this.crsalles = crsalles;
     }
 
-    @Override
-    public String toString() {
-        return "Crenaux{" +
-                "id=" + id +
-                ", heureDebut='" + heureDebut + '\'' +
-                ", heureFin='" + heureFin + '\'' +
-                ", crsalles=" + crsalles +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "Crenaux [id=" + id + ", heureDebut=" + heureDebut + ", heureFin=" + heureFin + ", crsalles=" + crsalles
+				+ "]";
+	}
+
+    
 }
