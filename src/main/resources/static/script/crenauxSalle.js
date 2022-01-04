@@ -21,6 +21,11 @@ $(document)
                         {
                             data: "crenaux.heureDebut"
                         },
+
+						{
+                            data: "crenaux.heureFin"
+                        },
+
 						{
                             data: "user.username"
                         },
