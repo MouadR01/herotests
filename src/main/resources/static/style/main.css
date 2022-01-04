@@ -1,10 +1,10 @@
-﻿/*
+/*
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /*
-    Created on : 22 déc. 2018, 13:04:48
+    Created on : 22 d�c. 2018, 13:04:48
     Author     : mosab
 */
 @font-face{
@@ -22,7 +22,7 @@ body {
 }
 
 #nav a:link,#nav a:hover,#nav a:visited{
-    color: black;
+    color: rgb(128, 128, 128);
     text-decoration: none;
 }
 .leftSide{
@@ -34,7 +34,7 @@ body {
     /*background-color: red;*/
 }
 .leftSide a:link,.leftSide a:hover,.leftSide a:visited{
-    color: rgba(0, 0, 0, 0.90);
+    color: rgb(192, 192, 192);
     text-decoration: none;
 }
 .list-group a{
