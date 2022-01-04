@@ -19,7 +19,7 @@ $(document)
                             data: "salle.type"
                         },
                         {
-                            data: "crenaux.heureDebut+ '->'+ crenaux.heureFin"
+                            data: "crenaux.heureDebut"
                         },
 						{
                             data: "user.username"
