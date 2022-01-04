@@ -16,13 +16,13 @@ $(document)
                             data: "date"
                         },
                         {
-                            data: "salle.id"
+                            data: "salle.type"
                         },
                         {
-                            data: "crenaux.id"
+                            data: "crenaux.heureDebut"
                         },
 						{
-                            data: "user.id"
+                            data: "user.username"
                         },
                         {
                             "render": function () {
@@ -269,7 +269,7 @@ $('#table-content').on(
                                        textStatus, jqXHR) {
                         table.ajax.reload();
                         $("#date").val('');
-                        $("#mcrenaux").val('');
+                        $("#crenaux").val('');
                         $("#salle").val('');
                         btn.text('Ajouter');
                     },
