@@ -11,5 +11,5 @@ import com.example.demo.model.Salle;
 @Component
 public interface CrenauxSalleRepository extends JpaRepository<CrenauxSalle, CrenauxSalleKey> {
 
-	CrenauxSalle findById(String salle, String crenaux);
+	CrenauxSalle findById(Salle salle, Crenaux crenaux);
 }

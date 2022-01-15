@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.model.Crenaux;
 import com.example.demo.model.CrenauxSalle;
 import com.example.demo.model.CrenauxSalleKey;
+import com.example.demo.model.Salle;
 import com.example.demo.repository.CrenauxRepository;
 import com.example.demo.repository.CrenauxSalleRepository;
 import com.example.demo.repository.SalleRepository;
@@ -60,7 +62,7 @@ public class CrenauxSalleController {
 	}
 	
 	@DeleteMapping(value = "/delete/{salle,crenaux}")
-	public void delete(String salle, String crenaux) {
+	public void delete(Salle salle, Crenaux crenaux) {
 		CrenauxSalle crenauxSalle = crenauxSalleRepository.findById(salle,crenaux);
 		crenauxSalleRepository.delete(crenauxSalle);
 	}
