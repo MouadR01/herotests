@@ -2,14 +2,14 @@ $(document).ready(function () {
 
 
 // # ===============================
-// # = Nombre des salles
+// # = Nombre des produits
 // # ===============================
     $.ajax({
-        url: 'salles/count',
+        url: 'produits/count',
         data: '',
         type: 'GET',
         success: function (data) {
-            $('#salle').html(data);
+            $('#produit').html(data);
         },
         error: function (jqXHR, textStatus,
                          errorThrown) {
@@ -36,7 +36,30 @@ $(document).ready(function () {
     // # ===============================
 // # = Nombre des Machines
 // # ===============================
-
+    $.ajax({
+        url: 'machines/count',
+        data: '',
+        type: 'GET',
+        success: function (data) {
+            $('#machine').html(data);
+        },
+        error: function (jqXHR, textStatus,
+                         errorThrown) {
+            console.log(textStatus);
+        }
+    });
+    $.ajax({
+        url: 'salles/count',
+        data: '',
+        type: 'GET',
+        success: function (data) {
+            $('#salle').html(data);
+        },
+        error: function (jqXHR, textStatus,
+                         errorThrown) {
+            console.log(textStatus);
+        }
+    });
 
 
 // # ===============================
