@@ -88,7 +88,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
 				AuthenticationException exception) throws IOException, ServletException {
 			// TODO Auto-generated method stub
-		    super.onAuthenticationFailure(request, response, exception);
 			response.sendRedirect("/login.html");
 		}
 	}
