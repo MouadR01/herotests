@@ -49,14 +49,19 @@ public class CrenauxSalleController {
 
 
 	@GetMapping("/all")
-	public List<CrenauxSalle> findAll(){
-		return crenauxSalleRepository.findAll();
+	public CrenauxSalle findById(String salle, String crenaux){
+		List<CrenauxSalle> list = crenauxSalleRepository.findAll();
+		CrenauxSalle crs2= null;
+		for(CrenauxSalle crs: list) {
+			if(crs.getSalle().getId()== Integer.parseInt(salle)&&crs.getCrenaux().getId()==Integer.parseInt(crenaux))
+				crs2=crs;
+		}
+		return crs2;
 	}
 	
-	@DeleteMapping(value = "/delete/{id}")
-	public void delete(@PathVariable(required = true) long id) {
-		System.out.println("id = "+id);
-		CrenauxSalle crenauxSalle = crenauxSalleRepository.findById((id));
+	@DeleteMapping(value = "/delete/{salle,crenaux}")
+	public void delete(String salle, String crenaux) {
+		CrenauxSalle crenauxSalle = crenauxSalleRepository.findById(salle,crenaux);
 		crenauxSalleRepository.delete(crenauxSalle);
 	}
 	
