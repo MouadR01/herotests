@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -60,7 +61,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.authorizeRequests().antMatchers("/login").permitAll()
 		.antMatchers("/logout").permitAll()
 		.antMatchers("/index.html").authenticated()
-		.antMatchers("/").hasAnyRole("USER", "ADMIN")
+		.antMatchers("/index2.html").authenticated()
+		.antMatchers("/").authenticated()
+		
 		.antMatchers("/produits/**").authenticated()
 		.antMatchers("/dist/**", "/fonts/**", "/img/**", "/inc/**",
 						"/css/**", "/js/**", "/vendor/**", "/sass/**", "/style/**")
@@ -94,9 +97,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		@Override
 		public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 				Authentication authentication) throws IOException, ServletException {
+			UsernamePasswordAuthenticationToken auth = (UsernamePasswordAuthenticationToken) authentication;
+			String name = auth.getName();
 			response.setStatus(HttpServletResponse.SC_OK);
-			
-			response.sendRedirect("/index.html");
+			if(name.equals("admin")){
+				response.sendRedirect("/index.html");}
+			else{
+				response.sendRedirect("/index2.html");
+			}
+
 		}
 	}
 
