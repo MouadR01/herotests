@@ -19,6 +19,7 @@ public class CrenauxSalle {
 	private User user;
     @Temporal(TemporalType.DATE)
     private Date date;
+    private String status;
 
     public CrenauxSalle() {
     }
@@ -89,6 +90,18 @@ public class CrenauxSalle {
 	public String toString() {
 		return "CrenauxSalle [id=" + id + ", salle=" + salle + ", crenaux=" + crenaux + ", user=" + user + ", date="
 				+ date + "]";
+	}
+
+
+
+	public String getStatus() {
+		return status;
+	}
+
+
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
  

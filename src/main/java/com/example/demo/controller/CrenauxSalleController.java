@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.BeanCreationNotAllowedException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -60,8 +62,46 @@ public class CrenauxSalleController {
 		crenauxSalleRepository.delete(crenauxSalle);
 	}
 	
+	@GetMapping("/alll")
+	public CrenauxSalle findByIdd(String salle, String crenaux) {
+		List<CrenauxSalle> lst = crenauxSalleRepository.findAll();
+		CrenauxSalle crs2 = null;
+		for (CrenauxSalle crs : lst) {
+			if (crs.getSalle().getId() == Integer.parseInt(salle) && crs.getCrenaux().getId() == Integer.parseInt(crenaux)) {
+				crs2 = crs;
+			}
+		}
+		return crs2;
+	}
+
+	@DeleteMapping(value = "/deletee/{salle,crenaux}")
+	public void delete( String salle, String creneaux) {
+		CrenauxSalle crs = findByIdd(salle,creneaux);
+		crenauxSalleRepository.delete(crs);
+	}
 	@GetMapping(value = "/nbr")
 	public long nbr() {
 		return crenauxSalleRepository.count();
 	}
+	
+	@PostMapping(value = "/findme/{salle,crenaux}")
+    public void valider(String salle, String creneaux) {
+        String admin = "admin";
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = auth.getName();
+        CrenauxSalle crs = findByIdd(salle, creneaux);
+        String valide = "valide";
+        String user = "user";
+        String reject = "reject";
+        String trt = "En cours de traitement...";
+
+        if (username.equals(admin)) {
+            crs.setStatus("valide");
+            crenauxSalleRepository.save(crs);
+        } else if (username.equals(user) && (crs.getStatus().equals(reject) || crs.getStatus().equals(trt))) {
+            crs.setStatus("En cours de traitement...");
+            crenauxSalleRepository.save(crs);
+        }
+
+    }
 }
