@@ -35,7 +35,7 @@ $(document)
 							}
 						},
 						{
-							"render": function() {
+							"render": function(e) {
 								return '<button type="button" class="btn btn-outline-secondary valider">Valider</button>';
 							}
 						},
