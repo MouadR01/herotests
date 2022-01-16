@@ -12,8 +12,7 @@ and open the template in the editor.
     src: url('../fonts/quicksand/Quicksand-Regular.ttf');
 }
 body {
-    font-family: Quicksand, sans-serif;
-
+    font-family: "Gill Sans", sans-serif;
 }
 #nav{
     width:100%;
